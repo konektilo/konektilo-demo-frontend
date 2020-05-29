@@ -4,12 +4,16 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'device-overview',
     pathMatch: 'full'
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+    path: 'device-overview',
+    loadChildren: () => import('./device-overview/device-overview.module').then( m => m.DeviceOverviewPageModule)
+  },
+  {
+    path: 'device-detail/:id',
+    loadChildren: () => import('./device-detail/device-detail.module').then( m => m.DeviceDetailPageModule)
   }
 ];
 
