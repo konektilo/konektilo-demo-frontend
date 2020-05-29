@@ -11,6 +11,8 @@ import {KonektiloService} from "../services/konektilo/konektilo.service";
   styleUrls: ['./device-detail.page.scss'],
 })
 export class DeviceDetailPage implements OnInit {
+  refreshManually = true;
+  manualRefreshDisabled = false;
   device: Device;
   konektiloResponses: KonektiloResponse[] = [];
 
@@ -33,6 +35,10 @@ export class DeviceDetailPage implements OnInit {
         this.konektiloResponses.push(konektiloResponse);
       })
     });
+  }
+
+  refreshManuallyToggled() {
+    this.manualRefreshDisabled = !this.refreshManually;
   }
 
 }

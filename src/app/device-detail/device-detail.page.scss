@@ -2,8 +2,17 @@
   margin: 20px;
 }
 
-ion-col > div {
+.opcUaDataRow {
   background-color: #f7f7f7;
   border: solid 1px #ddd;
-  padding: 10px;
+  border-radius: 5px;
+  margin: 15px;
+}
+
+.deviceDetailRow {
+  margin: 10px;
+}
+
+ion-toggle {
+  padding: 5px;
 }

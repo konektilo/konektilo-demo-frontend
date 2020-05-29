@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="device-overview"></ion-back-button>
     </ion-buttons>
-    <ion-title>Device details of <span *ngIf="device">{{device.name}}</span></ion-title>
+    <ion-title>{{device.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,34 +12,76 @@
     <div>
       <ion-item-divider>
         <ion-label>
-          <h1>Facts</h1>
+          <h1>Machine details</h1>
         </ion-label>
       </ion-item-divider>
 
+      <ion-grid>
+        <ion-row class="deviceDetailRow">
+          <ion-col size="3">
+            Device name
+          </ion-col>
+          <ion-col>
+            {{device.name}}
+          </ion-col>
+        </ion-row>
 
+        <ion-row class="deviceDetailRow">
+          <ion-col size="3">
+            Description
+          </ion-col>
+          <ion-col>
+            {{device.description}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="deviceDetailRow">
+          <ion-col size="3">
+            Number of registered nodes
+          </ion-col>
+          <ion-col>
+            {{device.nodes.length}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="deviceDetailRow">
+          <ion-col size="3">
+            Refresh manually
+          </ion-col>
+          <ion-col>
+            <ion-toggle [(ngModel)]="refreshManually" (ionChange)="refreshManuallyToggled()"></ion-toggle>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </div>
+
+    <br>
+    <br>
 
     <div>
       <ion-item-divider>
         <ion-label>
           <h1>OPC-UA data</h1>
         </ion-label>
-        <ion-button (click)="refreshOpcUaData()" slot="end">
+        <ion-button (click)="refreshOpcUaData()" [disabled]="manualRefreshDisabled" slot="end">
           <ion-icon slot="icon-only" name="refresh"></ion-icon>
         </ion-button>
       </ion-item-divider>
 
       <ion-grid>
-        <ion-row>
+        <ion-row class="opcUaDataRow">
           <ion-col>
             <h3>OPC-UA node</h3>
           </ion-col>
           <ion-col>
             <h3>OPC-UA variable</h3>
           </ion-col>
+          <ion-col>
+            <h3>OPC-UA variable type</h3>
+          </ion-col>
         </ion-row>
 
-        <ion-row *ngFor="let konektiloResponse of konektiloResponses">
+        <ion-row *ngFor="let konektiloResponse of konektiloResponses" class="opcUaDataRow">
           <ion-col>
             <div>
               {{konektiloResponse.result.variableDisplayname}}
@@ -50,24 +92,13 @@
               {{konektiloResponse.result.variableData}}
             </div>
           </ion-col>
+          <ion-col>
+            <div>
+              {{konektiloResponse.result.variableType}}
+            </div>
+          </ion-col>
         </ion-row>
       </ion-grid>
-
-
-      <!--      <ion-list *ngFor="let konektiloResponse of konektiloResponses">-->
-      <!--        <ion-item class="customItem">-->
-      <!--          <h3>OPC-UA node</h3>-->
-      <!--          <h3 slot="end">OPC-UA variable</h3>-->
-      <!--        </ion-item>-->
-      <!--        <ion-item class="customItem">-->
-      <!--          <ion-label>-->
-      <!--            {{konektiloResponse.result.variableDisplayname}}-->
-      <!--          </ion-label>-->
-      <!--          <ion-label slot="end">-->
-      <!--            {{konektiloResponse.result.variableData}}-->
-      <!--          </ion-label>-->
-      <!--        </ion-item>-->
-      <!--      </ion-list>-->
     </div>
   </div>
 </ion-content>

@@ -11,7 +11,10 @@ export class DeviceService {
       id: 1,
       name: 'Konektilo demo machine',
       description: 'This is the konektilo demo machine',
-      nodes: [{identifier: 'stringIdentStringVar', namespace: 3, opcUaServer: 'opcuatestserver'}]
+      nodes: [
+        {identifier: 'stringIdentStringVar', namespace: 3, opcUaServer: 'opcuatestserver'},
+        {identifier: 1, namespace: 3, opcUaServer: 'opcuatestserver'},
+      ]
     },
     {
       id: 2,
