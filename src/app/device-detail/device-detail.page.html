@@ -49,7 +49,7 @@
             Refresh manually
           </ion-col>
           <ion-col>
-            <ion-toggle [(ngModel)]="refreshManually" (ionChange)="refreshManuallyToggled()"></ion-toggle>
+            <ion-toggle [ngModel]="refreshManually" (ionChange)="refreshManuallyToggled($event)"></ion-toggle>
           </ion-col>
         </ion-row>
       </ion-grid>
