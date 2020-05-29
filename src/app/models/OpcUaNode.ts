@@ -1,4 +1,4 @@
-export interface Node {
+export interface OpcUaNode {
   identifier: any;
   identifierType?: string;
   namespace: number;

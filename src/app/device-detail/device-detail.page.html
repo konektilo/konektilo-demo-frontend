@@ -8,5 +8,66 @@
 </ion-header>
 
 <ion-content>
+  <div class="container">
+    <div>
+      <ion-item-divider>
+        <ion-label>
+          <h1>Facts</h1>
+        </ion-label>
+      </ion-item-divider>
 
+
+    </div>
+
+    <div>
+      <ion-item-divider>
+        <ion-label>
+          <h1>OPC-UA data</h1>
+        </ion-label>
+        <ion-button (click)="refreshOpcUaData()" slot="end">
+          <ion-icon slot="icon-only" name="refresh"></ion-icon>
+        </ion-button>
+      </ion-item-divider>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <h3>OPC-UA node</h3>
+          </ion-col>
+          <ion-col>
+            <h3>OPC-UA variable</h3>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngFor="let konektiloResponse of konektiloResponses">
+          <ion-col>
+            <div>
+              {{konektiloResponse.result.variableDisplayname}}
+            </div>
+          </ion-col>
+          <ion-col>
+            <div>
+              {{konektiloResponse.result.variableData}}
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <!--      <ion-list *ngFor="let konektiloResponse of konektiloResponses">-->
+      <!--        <ion-item class="customItem">-->
+      <!--          <h3>OPC-UA node</h3>-->
+      <!--          <h3 slot="end">OPC-UA variable</h3>-->
+      <!--        </ion-item>-->
+      <!--        <ion-item class="customItem">-->
+      <!--          <ion-label>-->
+      <!--            {{konektiloResponse.result.variableDisplayname}}-->
+      <!--          </ion-label>-->
+      <!--          <ion-label slot="end">-->
+      <!--            {{konektiloResponse.result.variableData}}-->
+      <!--          </ion-label>-->
+      <!--        </ion-item>-->
+      <!--      </ion-list>-->
+    </div>
+  </div>
 </ion-content>
