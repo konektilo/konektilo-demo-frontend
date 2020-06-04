@@ -10,6 +10,7 @@ If you would like to test and include konektilo as RESTful api for opc-ua you ca
 # getting started
 * For the ionic setup please take a look at ```https://ionicframework.com/getting-started```
 * Clone this repository
+* Dependencies can be installed with ```npm install```
 * The development server can be started with ```ng serve```
 * After startup the development server runs at ```http://localhost:4200```
 
