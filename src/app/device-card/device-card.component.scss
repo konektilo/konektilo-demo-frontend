@@ -1,10 +1,12 @@
-app-device-card {
-    .deviceCard {
-        max-width: 100px;
-    }
+.deviceCard {
+  width: 300px;
+}
+
+.deviceCard:hover {
+  background-color: rgb(25, 184, 20, 0.12);
 }
 
 .deviceCardTitle {
-    font-family: "Rubik Bold";
-    color: #19B814;
+  font-family: 'Rubik Bold', sans-serif;
+  color: #19B814;
 }
