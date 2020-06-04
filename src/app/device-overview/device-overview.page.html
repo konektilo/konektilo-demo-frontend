@@ -1,11 +1,14 @@
 <ion-header class="ion-no-border">
-    <ion-toolbar>
-         <ion-title class="ionTitle">Dashboard</ion-title>
-    </ion-toolbar>
+  <ion-toolbar>
+    <ion-title class="ionTitle">Dashboard</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <div class="container">
-        <app-device-card *ngFor="let device of devices" [device]="device"></app-device-card>
-    </div>
+  <div class="container">
+    <app-device-card *ngFor="let device of devices" [device]="device"></app-device-card>
+  </div>
 </ion-content>

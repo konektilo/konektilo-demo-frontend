@@ -1,120 +1,124 @@
 <ion-header class="ion-no-border">
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-back-button defaultHref="device-overview"></ion-back-button>
-        </ion-buttons>
-        <ion-title class="ionTitle">{{device.name}}</ion-title>
-    </ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="device-overview"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ionTitle">{{device.name}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <div class="container">
-        <div>
-            <ion-item-divider>
-                <ion-label>
-                    <h2>Machine details</h2>
-                </ion-label>
-            </ion-item-divider>
+  <div class="container">
+    <div>
+      <ion-item-divider>
+        <ion-label>
+          <h2>Machine details</h2>
+        </ion-label>
+      </ion-item-divider>
 
-            <ion-grid class="ion-grid">
-                <ion-row class="deviceDetailRow">
-                    <ion-col size="3">
-                        <label class="deviceDetailRowLabel">Device name</label>
-                    </ion-col>
-                    <ion-col>
-                        {{device.name}}
-                    </ion-col>
-                </ion-row>
+      <ion-grid class="ion-grid">
+        <ion-row class="deviceDetailRow">
+          <ion-col size="3">
+            <label class="deviceDetailRowLabel">Device name</label>
+          </ion-col>
+          <ion-col>
+            {{device.name}}
+          </ion-col>
+        </ion-row>
 
-                <ion-row class="deviceDetailRow">
-                    <ion-col size="3">
-                        <label class="deviceDetailRowLabel">Description</label>
-                    </ion-col>
-                    <ion-col>
-                        {{device.description}}
-                    </ion-col>
-                </ion-row>
+        <ion-row class="deviceDetailRow">
+          <ion-col size="3">
+            <label class="deviceDetailRowLabel">Description</label>
+          </ion-col>
+          <ion-col>
+            {{device.description}}
+          </ion-col>
+        </ion-row>
 
-                <ion-row class="deviceDetailRow">
-                    <ion-col size="3">
-                        <label class="deviceDetailRowLabel">Number of registered nodes</label>
-                    </ion-col>
-                    <ion-col>
-                        {{device.nodes.length}}
-                    </ion-col>
-                </ion-row>
+        <ion-row class="deviceDetailRow">
+          <ion-col size="3">
+            <label class="deviceDetailRowLabel">Number of registered nodes</label>
+          </ion-col>
+          <ion-col>
+            {{device.nodes.length}}
+          </ion-col>
+        </ion-row>
 
-                <ion-item-divider>
-                    <ion-label>
-                        <h2>Actions</h2>
-                    </ion-label>
-                </ion-item-divider>
+        <ion-item-divider>
+          <ion-label>
+            <h2>Actions</h2>
+          </ion-label>
+        </ion-item-divider>
 
-                <ion-row class="deviceDetailRow">
-                    <ion-col size="3">
-                        <label class="deviceDetailRowLabel">Refresh manually</label>
-                    </ion-col>
-                    <ion-col>
-                        <ion-toggle [ngModel]="refreshManually" (ionChange)="refreshManuallyToggled($event)"></ion-toggle>
-                    </ion-col>
-                </ion-row>
-                <ion-row class="deviceDetailRow">
-                    <ion-col size="3">
-                        <label class="deviceDetailRowLabel">Refresh Data</label>
-                    </ion-col>
-                    <ion-col>
-                        <ion-button class="refreshButton" (click)="refreshOpcUaData()" [disabled]="manualRefreshDisabled">
-                            <ion-icon slot="icon-only" name="refresh"></ion-icon> Refresh
-                        </ion-button>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-        </div>
-
-        <br>
-        <br>
-
-        <div>
-            <ion-item-divider>
-                <ion-label>
-                    <h2>OPC-UA data</h2>
-                </ion-label>
-                <!-- <ion-button (click)="refreshOpcUaData()" [disabled]="manualRefreshDisabled" slot="end">
-                    <ion-icon slot="icon-only" name="refresh"></ion-icon> Refresh
-                </ion-button> -->
-            </ion-item-divider>
-
-            <ion-grid>
-                <ion-row class="opcUaDataRow">
-                    <ion-col>
-                        <label class="opcUaDataRowLabel">OPC-UA node</label>
-                    </ion-col>
-                    <ion-col>
-                        <label class="opcUaDataRowLabel">OPC-UA variable</label>
-                    </ion-col>
-                    <ion-col>
-                        <label class="opcUaDataRowLabel">OPC-UA variable type</label>
-                    </ion-col>
-                </ion-row>
-
-                <ion-row *ngFor="let konektiloResponse of konektiloResponses" class="opcUaDataRow">
-                    <ion-col>
-                        <div>
-                            {{konektiloResponse.result.variableDisplayname}}
-                        </div>
-                    </ion-col>
-                    <ion-col>
-                        <div>
-                            {{konektiloResponse.result.variableData}}
-                        </div>
-                    </ion-col>
-                    <ion-col>
-                        <div>
-                            {{konektiloResponse.result.variableType}}
-                        </div>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-        </div>
+        <ion-row class="deviceDetailRow">
+          <ion-col size="3">
+            <label class="deviceDetailRowLabel">Refresh manually</label>
+          </ion-col>
+          <ion-col>
+            <ion-toggle [ngModel]="refreshManually" (ionChange)="refreshManuallyToggled($event)"></ion-toggle>
+          </ion-col>
+        </ion-row>
+        <ion-row class="deviceDetailRow">
+          <ion-col size="3">
+            <label class="deviceDetailRowLabel">Refresh Data</label>
+          </ion-col>
+          <ion-col>
+            <ion-button class="refreshButton" (click)="refreshOpcUaData()" [disabled]="manualRefreshDisabled">
+              <ion-icon slot="icon-only" name="refresh"></ion-icon>
+              Refresh
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </div>
+
+    <br>
+    <br>
+
+    <div>
+      <ion-item-divider>
+        <ion-label>
+          <h2>OPC-UA data</h2>
+        </ion-label>
+        <!-- <ion-button (click)="refreshOpcUaData()" [disabled]="manualRefreshDisabled" slot="end">
+            <ion-icon slot="icon-only" name="refresh"></ion-icon> Refresh
+        </ion-button> -->
+      </ion-item-divider>
+
+      <ion-grid>
+        <ion-row class="opcUaDataRow">
+          <ion-col>
+            <label class="opcUaDataRowLabel">OPC-UA node</label>
+          </ion-col>
+          <ion-col>
+            <label class="opcUaDataRowLabel">OPC-UA variable</label>
+          </ion-col>
+          <ion-col>
+            <label class="opcUaDataRowLabel">OPC-UA variable type</label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngFor="let konektiloResponse of konektiloResponses" class="opcUaDataRow">
+          <ion-col>
+            <div>
+              {{konektiloResponse.result.variableDisplayname}}
+            </div>
+          </ion-col>
+          <ion-col>
+            <div>
+              {{konektiloResponse.result.variableData}}
+            </div>
+          </ion-col>
+          <ion-col>
+            <div>
+              {{konektiloResponse.result.variableType}}
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
 </ion-content>
