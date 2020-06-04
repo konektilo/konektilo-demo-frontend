@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Dashboard',
       url: '/device-overview',
-      icon: 'desktop'
+      icon: 'stats-chart'
     },
     {
       title: 'Settings',

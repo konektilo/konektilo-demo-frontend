@@ -1,18 +1,42 @@
 .container {
-  margin: 20px;
+    margin: 20px;
 }
 
 .opcUaDataRow {
-  background-color: #f7f7f7;
-  border: solid 1px #ddd;
-  border-radius: 5px;
-  margin: 15px;
+    background-color: #f7f7f7;
+    border: solid 1px #ddd;
+    border-radius: 5px;
+    margin: 15px;
 }
 
 .deviceDetailRow {
-  margin: 10px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 ion-toggle {
-  padding: 5px;
+    padding: 5px;
 }
+
+.deviceDetailRowLabel {
+    font-family: "Rubik Bold";
+    color: #222428;
+}
+
+.opcUaDataRowLabel {
+    font-family: "Rubik Bold";
+    color: #222428;
+}
+
+.refreshButton {
+    size: small;
+}
+
+.ion-grid {
+    height: 100%;
+}
+
+.ion-row {}

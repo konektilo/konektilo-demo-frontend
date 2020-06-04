@@ -9,7 +9,7 @@ export class DeviceService {
   devices: Device[] = [
     {
       id: 1,
-      name: 'Konektilo demo machine',
+      name: 'konektilo Demo Machine',
       description: 'This is the konektilo demo machine',
       nodes: [
         {identifier: 'stringIdentStringVar', namespace: 3, opcUaServer: 'opcuatestserver'},
@@ -24,7 +24,7 @@ export class DeviceService {
     },
     {
       id: 3,
-      name: 'Third machine',
+      name: 'Third Machine',
       description: 'Description of third machine',
       nodes: []
     }
