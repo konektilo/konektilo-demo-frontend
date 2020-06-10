@@ -1,4 +1,4 @@
-![](src/assets/konektilo-logo-readme.png)
+![](graphics/konektilo-logo-readme.png)
 # konektilo demo frontend
 The konektilo demo frontend is an ionic app which you can use for developing a dashboard for your opc-ua servers that are connected to konektilo.
 The app is developed with ionic 5.
